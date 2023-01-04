@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:faker/faker.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -24,6 +25,7 @@ class HomePage extends StatelessWidget {
                   icon: const Icon(Icons.phone),
                   iconSize: 35,
                   onPressed: () {
+                    launchUrl(Uri.parse("tel:0505050505"));
                   }),
               IconButton(
                   icon: const Icon(Icons.map),
