@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_init/home_page.dart';
 import 'package:flutter_init/movies_list.dart';
+import 'package:flutter_init/model/movies.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MaterialApp(
+      home:MyApp()));
 }
 
 class MyApp extends StatefulWidget {
@@ -25,8 +27,7 @@ class _MyAppState extends State<MyApp> {
   
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: Text("AlloFilm"),
           actions: [
@@ -37,8 +38,8 @@ class _MyAppState extends State<MyApp> {
                     context: context,
                     delegate: MySearchDelegate(),
                   );
-                }
-            )
+                },
+            ),
           ],
         ),
         body: [
@@ -62,7 +63,6 @@ class _MyAppState extends State<MyApp> {
             ),
           ],
         ),
-      ),
     );
   }
 
@@ -92,18 +92,43 @@ class MySearchDelegate extends SearchDelegate {
   ];
 
   @override
-  Widget buildSuggestions(BuildContext context) => const Text('suggestions');
+  Widget buildSuggestions(BuildContext context) {
+    List<String> matchQuery = [];
+    for(var movie in movieList){
+      if(movie.title.toLowerCase().contains(query.toLowerCase())){
+        matchQuery.add(movie.title);
+      }
+    }
 
-
-  @override
-  PreferredSizeWidget buildBottom(BuildContext context) {
-    return const PreferredSize(
-        preferredSize: Size.fromHeight(56.0),
-        child: Text('bottom'));
+    return ListView.builder(
+      itemCount: matchQuery.length,
+      itemBuilder: (context, index){
+        var result = matchQuery[index];
+        return ListTile(
+          title: Text(result),
+        );
+      },
+    );
   }
 
   @override
-  Widget buildResults(BuildContext context) => const Text('results');
+  Widget buildResults(BuildContext context) {
+    List<String> matchQuery = [];
+    for(var movie in movieList){
+      if(movie.title.toLowerCase().contains(query.toLowerCase())){
+        matchQuery.add(movie.title);
+      }
+    }
+    return ListView.builder(
+      itemCount: matchQuery.length,
+      itemBuilder: (context, index){
+        var result = matchQuery[index];
+        return ListTile(
+          title: Text(result),
+        );
+      },
+    );
+  }
 
 }
 
