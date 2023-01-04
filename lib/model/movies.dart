@@ -43,4 +43,34 @@ class Movie {
         note : '4.5',
         imgUrl : 'parasite.jpg'
     ),
+    Movie(
+        title : 'Demon Slayer: le train de l\'infini',
+        note : '4.1',
+        imgUrl : 'demonSlayerMovie.jpg'
+    ),
+    Movie(
+        title : 'Avengers: Infinity War',
+        note : '4.3',
+        imgUrl : 'infinityWar.jpg'
+    ),
+    Movie(
+        title : 'Get Out',
+        note : '4',
+        imgUrl : 'GetOut.jpg'
+    ),
+    Movie(
+        title : 'Interstellar',
+        note : '4,5',
+        imgUrl : 'interstellar.jpg'
+    ),
+    Movie(
+        title : 'Inception',
+        note : '4,5',
+        imgUrl : 'inception.jpg'
+    ),
+    Movie(
+        title : 'Matrix',
+        note : '4,4',
+        imgUrl : 'matrix.jpg'
+    ),
   ];

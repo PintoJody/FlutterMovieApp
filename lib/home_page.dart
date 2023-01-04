@@ -16,6 +16,26 @@ class HomePage extends StatelessWidget {
           const Text(
             "Bienvenue sur ALLOFILM",
             style: TextStyle(fontSize: 22),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
+                  icon: const Icon(Icons.phone),
+                  iconSize: 35,
+                  onPressed: () {
+                  }),
+              IconButton(
+                  icon: const Icon(Icons.map),
+                  iconSize: 35,
+                  onPressed: () {
+                  }),
+              IconButton(
+                  icon: const Icon(Icons.share),
+                  iconSize: 35,
+                  onPressed: () {
+                  }),
+            ],
           )
         ],
       ),
