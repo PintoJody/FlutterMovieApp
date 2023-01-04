@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_init/model/movies.dart';
 
+import '../movie_details.dart';
+
 class MySearchDelegate extends SearchDelegate {
 
   @override
@@ -26,9 +28,11 @@ class MySearchDelegate extends SearchDelegate {
   @override
   Widget buildSuggestions(BuildContext context) {
     List<String> matchQuery = [];
+    List matchMovie = [];
     for(var movie in movieList){
       if(movie.title.toLowerCase().contains(query.toLowerCase())){
         matchQuery.add(movie.title);
+        matchMovie.add(movie);
       }
     }
 
@@ -38,6 +42,12 @@ class MySearchDelegate extends SearchDelegate {
         var result = matchQuery[index];
         return ListTile(
           title: Text(result),
+          onTap: (){
+            Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => DetailMovieView(matchMovie[index]))
+            );
+          },
         );
       },
     );
